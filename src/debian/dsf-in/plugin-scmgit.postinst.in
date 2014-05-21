@@ -1,0 +1,17 @@
+case "$1" in
+    configure)
+	    i=plugin-scmgit.inc
+	    if [ -e /etc/gforge/httpd.conf.d/$i ] ; then
+		sed -i -e s,/usr/share/gforge/src,/usr/share/gforge,g /etc/gforge/httpd.conf.d/$i
+	    else
+		cp /usr/share/gforge/etc/httpd.conf.d-fhs/$i /etc/gforge/httpd.conf.d/$i
+	    fi
+	    if grep -q {[a-z_]*/[a-z_]*} /etc/gforge/httpd.conf.d/$i ; then
+		PATH=/usr/share/gforge/bin:$PATH manage-apache-config.sh install
+		mv /etc/gforge/httpd.conf.d/$i.generated /etc/gforge/httpd.conf.d/$i
+	    fi
+	;;
+    
+    abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+esac
