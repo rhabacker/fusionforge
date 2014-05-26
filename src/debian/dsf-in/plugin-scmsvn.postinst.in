@@ -1,6 +1,6 @@
 case "$1" in
     configure)
-	    for i in plugin-scmsvn.inc 05-config-macros-scmsvn.conf ; do
+	    for i in 05-config-macros-scmsvn.conf ; do
 		if [ -e /etc/gforge/httpd.conf.d/$i ] ; then
 		    sed -i -e s,/usr/share/gforge/src,/usr/share/gforge,g /etc/gforge/httpd.conf.d/$i
 		else
