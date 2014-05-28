@@ -39,7 +39,7 @@ case "$1" in
 	fi
 
 	# Apache config files that need to be generated at install time
-	list="secrets.inc vhost-list.inc vhost-main.inc vhost-projects.inc projects-in-mainvhost.inc vhost-scm.inc 03-config-alias-plugin.conf"
+	list="secrets.inc vhost-list.inc vhost-main.inc vhost-projects.inc projects-in-mainvhost.inc vhost-scm.inc 03-config-alias-plugin.conf plugin-scmsvn.inc"
 	for i in $list ; do
 	    if [ -e /etc/gforge/httpd.conf.d/$i ] ; then
 		sed -i -e s,/usr/share/gforge/src,/usr/share/gforge,g /etc/gforge/httpd.conf.d/$i
