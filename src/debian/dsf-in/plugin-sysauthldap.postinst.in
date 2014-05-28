@@ -1,6 +1,6 @@
 case "$1" in
     configure)
-	    for i in plugin-scmgit.inc ; do
+	    for i in plugin-sysauthldap-secrets.inc ; do
 		if [ -e /etc/gforge/httpd.conf.d/$i ] ; then
 		    sed -i -e s,/usr/share/gforge/src,/usr/share/gforge,g /etc/gforge/httpd.conf.d/$i
 		else
@@ -16,7 +16,8 @@ case "$1" in
 		    mv /etc/gforge/httpd.conf.d/$i.generated /etc/gforge/httpd.conf.d/$i
 		fi
 	    done
-	    ;;
+	;;
+    
     abort-upgrade|abort-remove|abort-deconfigure)
 	;;
 esac
