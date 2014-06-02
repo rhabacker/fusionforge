@@ -30,8 +30,13 @@
  *
  */
 function account_pwvalid($pw) {
-	if (strlen($pw) < 6) {
-		$GLOBALS['register_error'] = _('Password must be at least 6 characters.');
+	$chars= '](),?;.:\/!§*%$£^_`{}*+"' . "'" . '-' ;
+	$pat = '/['.$chars.']/' ;
+	if ((strlen($pw) < 6)
+	    || !preg_match ($pat, $pw)
+	    || !preg_match ('/[0-9]/', $pw)) {
+		$GLOBALS['register_error'] = sprintf(_('Password must be at least 6 characters and include at least one digit and one character among "%s".'),
+						     $chars);
 		return 0;
 	}
 	return 1;
