@@ -1,3 +1,11 @@
+fusionforge (5.3+adullact1) UNRELEASED; urgency=medium
+
+  * Adullact-specific integration branch based on 5.3.  Includes the
+    following feature branches:
+    * [none merged yet]
+
+ -- Roland Mas <roland@gnurandal.com>  Mon, 02 Jun 2014 13:25:12 +0200
+
 fusionforge (5.3+20140522-0) UNRELEASED; urgency=medium
 
   [ Sylvain Beucler ]
