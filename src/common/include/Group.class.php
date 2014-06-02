@@ -1587,6 +1587,7 @@ class Group extends Error {
 				return false;
 			}
 			$tag = trim($tag);
+			$tag = strtolower($tag);
 			if ($tag == '' || array_search($tag, $inserted) !== false) continue;
 			$sql = 'INSERT INTO project_tags (group_id,name) VALUES ($1, $2)';
 			$res = db_query_params($sql, array($this->getID(), $tag));
