@@ -31,7 +31,7 @@ class Search extends FForge_SeleniumTestCase
 		 */
 		$this->switchUser (FORGE_ADMIN_USERNAME) ;
 		$this->clickAndWait("link=My Account");
-		$this->select("theme_id", "label=Default Theme");
+		$this->select("theme_id", "label=Funky");
 		$this->clickAndWait("submit");
 		
 		/*
