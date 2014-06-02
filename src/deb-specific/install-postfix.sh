@@ -31,6 +31,7 @@ case "$1" in
 	    echo "gforge: $server_admin" >> /etc/aliases.gforge-new
 	fi
 
+	if [ ! -e /etc/postfix/main.cf ]; then cp /usr/share/postfix/main.cf.debian /etc/postfix/main.cf; fi
 	cp -a /etc/postfix/main.cf /etc/postfix/main.cf.gforge-new
 
 	perl -pi -e's/SOURCEFORGE_DOMAINS/GFORGE_DOMAINS/;' \
@@ -44,7 +45,7 @@ case "$1" in
 require ("/usr/share/gforge/lib/include.pl") ;
 my $l;
 while ($l = <>) { 
-  last if l =~ /^\s*mydestination/ ;
+  last if $l =~ /^\s*mydestination/ ;
   print $l;
 };
 chomp $l;
@@ -136,7 +137,8 @@ if ($seen_gf_block == 0) {
 
 if ($seen_alias_maps == 0) {
 	print "### GFORGE ADDITION - The following virtual_alias_maps line can be moved and this line removed ###\n";
-	print "virtual_alias_maps = pgsql:pgsql_gforge_users\n";
+	# Using proxy: so that Postfix daemons can access PostgreSQL from within their chroot
+	print "virtual_alias_maps = proxy:pgsql:pgsql_gforge_users\n";
 };
 if ($seen_transport_maps == 0) {
 	print "### GFORGE ADDITION - The following transport_maps line can be moved and this line removed ###\n";
@@ -175,7 +177,7 @@ if ($seen_transport_maps == 0) {
 	perl -e '
 require ("/usr/share/gforge/lib/include.pl") ;
 while ($l = <>) { 
-  last if l =~ /^\s*mydestination/ ;
+  last if $l =~ /^\s*mydestination/ ;
   print $l;
 };
 chomp $l ;
