@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fusionforge 5.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-07 16:12+0100\n"
-"PO-Revision-Date: 2014-05-21 23:01+0200\n"
+"PO-Revision-Date: 2014-06-02 13:48+0200\n"
 "Last-Translator: Sylvain Beucler <beuc@beuc.net>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2818,7 +2818,7 @@ msgstr "Utilisateur ajouté avec succès"
 
 #: common/include/account.php:34
 msgid "Password must be at least 6 characters."
-msgstr "Le mot de passe doit comporter au moins 6 caractères."
+msgstr "Le mot de passe doit comporter au moins 6 caractères, dont un chiffre et un signe parmi « [](),?;.:/!§*%$£^_`{}*+\"'- »."
 
 #: common/include/account.php:60
 msgid "There cannot be any spaces in the login name."
@@ -13409,7 +13409,7 @@ msgstr "Ancien mot de passe incorrect"
 #: www/account/change_pw.php:53 www/account/lostlogin.php:62
 #: www/admin/passedit.php:55
 msgid "You must supply valid password (at least 6 chars)."
-msgstr "Vous devez fournir un mot de passe valide (au moins 6 caractères)."
+msgstr "Vous devez fournir un mot de passe valide (au moins 6 caractères, dont un chiffre et un signe parmi « [](),?;.:/!§*%$£^_`{}*+\"'- »)."
 
 #: www/account/change_pw.php:58 www/account/lostlogin.php:66
 #: www/admin/passedit.php:63
@@ -13450,7 +13450,7 @@ msgstr "Ancien mot de passe"
 #: www/account/change_pw.php:98 www/account/lostlogin.php:95
 #: www/admin/passedit.php:92
 msgid "New Password (at least 6 chars)"
-msgstr "Nouveau mot de passe (6 caractères minimum)"
+msgstr "Nouveau mot de passe (6 caractères minimum, dont un chiffre et un signe parmi « [](),?;.:/!§*%$£^_`{}*+\"'- »)"
 
 #: www/account/change_pw.php:104 www/account/lostlogin.php:101
 #: www/admin/passedit.php:94
@@ -13781,7 +13781,7 @@ msgstr "Nom du compte (ne pas utiliser de majuscules) :"
 
 #: www/account/register.php:159
 msgid "Password (min. 6 chars):"
-msgstr "Mot de passe (6 caractères minimum) :"
+msgstr "Mot de passe (6 caractères minimum, dont un chiffre et un signe parmi « [](),?;.:/!§*%$£^_`{}*+\"'- ») :"
 
 #: www/account/register.php:165
 msgid "Password (repeat):"
@@ -14660,7 +14660,7 @@ msgstr "Changement de mot de passe pour l'utilisateur n°%1$s « %2$s » (%3$s
 
 #: www/admin/passedit.php:93 www/admin/passedit.php:95
 msgid "At least 6 chars"
-msgstr "6 caractères minimum"
+msgstr "6 caractères minimum, dont un chiffre et un signe parmi « [](),?;.:/!§*%$£^_`{}*+\"'- »"
 
 #: www/admin/pending-news.php:61 www/admin/pending-news.php:124
 #: www/news/admin/index.php:64 www/news/admin/index.php:111
@@ -18838,7 +18838,7 @@ msgstr "Nom précis du projet"
 
 #: www/project/admin/index.php:141
 msgid "Maximum 255 characters, HTML will be stripped from this description"
-msgstr "255 caractères maximum, sans HTML"
+msgstr "Le HTML sera supprimé de cette description."
 
 #: www/project/admin/index.php:150
 msgid "Project tags"
@@ -19335,7 +19335,7 @@ msgstr "Résumé des buts du projet"
 #: www/register/index.php:197
 #, php-format
 msgid "Please provide detailed, accurate description of your project and what %1$s resources and in which way you plan to use. This description will be the basis for the approval or rejection of your project's hosting on %1$s, and later, to ensure that you are using the services in the intended way. This description will not be used as a public description of your project. It must be written in English. From 10 to 1500 characters."
-msgstr "Veuillez fournir une description précise et détaillée de votre projet, quelles ressources de %1$s vous prévoyez d'utiliser, et de quelle manière. L'approbation ou le rejet de l'hébergement de votre projet sur %1$s reposera sur cette description, comme plus tard son maintien, conditionné par l'usage approprié des services. Cette description ne sera pas utilisée comme description publique de votre projet. Elle doit être rédigée en anglais. De 10 à 1500 caractères."
+msgstr "Veuillez fournir une description précise et détaillée de votre projet, quelles ressources de %1$s vous prévoyez d'utiliser, et de quelle manière. L'approbation ou le rejet de l'hébergement de votre projet sur %1$s reposera sur cette description, comme plus tard son maintien, conditionné par l'usage approprié des services. Cette description ne sera pas utilisée comme description publique de votre projet. Elle doit être rédigée en français. </p><p>Avant de demander la création de votre projet aux administrateur de la forge, merci de suivre la checklist suivante :<ul><li>Est-ce que le nom de mon projet est déjà pris par un autre projet informatique ? (Ne pas hesiter à lancer des recherches Google, etc...)</li><li>Est-ce que j'ai pensé à l'i18n (internationalisation) et à la l10n (localisation) du projet ?</li><li>Ai-je bien réfléchi à la licence libre sous laquelle je publie mon code ?</li><li>De quels services de la forge ai-je besoin ? (forum ? gestion bugs ?  gestion sources ? ...)</li><li>Parmi les services de la forge, il y a un onglet « documentation » : ai-je prévu de documenter mon projet à court/moyen/long terme ?</li><li>Mon projet dispose-t-il déjà d'un site web de référence ? Si oui, je peux utiliser les onglets dynamiques pour pointer dessus ; sinon, vais-je activer une homepage pour mon site sur la forge ?</li></ul>"
 
 #: www/register/index.php:205 www/register/index.php:210
 msgid "Project Public Description"
