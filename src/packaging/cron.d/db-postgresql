@@ -59,3 +59,5 @@
 # Daily mail for not approved news
 30 17 * * * root forge_run_job get_news_notapproved.pl
 
+# Daily email to users with pending tasks
+30 5 * * 1,2,3,4,5 root $PHP $FFCRON/daily_task_email.php
