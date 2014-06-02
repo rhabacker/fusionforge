@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /frs/
+Disallow: /scm/
+Disallow: /softwaremap/
+Disallow: /plugins/scmcvs/
+Disallow: /plugins/scmsvn/
+
