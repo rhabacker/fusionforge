@@ -899,7 +899,7 @@ if (isset($params['group']) && $params['group']) {
 	 * @return	string	Html to build a submenu separator.
 	 */
 	function subMenuSeparator() {
-		return '';
+		return ' | ';
 	}
 
 	/**

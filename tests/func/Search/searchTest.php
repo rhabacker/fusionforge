@@ -27,6 +27,14 @@ class Search extends FForge_SeleniumTestCase
 	function testSearch()
 	{
 		/*
+		 * Selenium et le thème Adullact ne font pas bon ménage pour certains trucs
+		 */
+		$this->switchUser (FORGE_ADMIN_USERNAME) ;
+		$this->clickAndWait("link=My Account");
+		$this->select("theme_id", "label=Default Theme");
+		$this->clickAndWait("submit");
+		
+		/*
 		 * Search for projects
 		 */
 

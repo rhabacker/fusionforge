@@ -75,13 +75,6 @@ function forum_header($params) {
 				</p>
 				';
 
-			// display classification
-			if ($params['group'] == forge_get_config('news_group')) {
-				print stripslashes(trove_getcatlisting(db_result($result,0,'forum_id'),0,1));
-			} elseif (forge_get_config('use_trove')) {
-				print stripslashes(trove_getcatlisting($params['group'],0,1));
-			}
-
 			echo '<p><strong>'._('Content')._(':').'</strong></p>';
 			$body = db_result($result,0,'details');
 			$body = TextSanitizer::purify($body);
