@@ -2538,6 +2538,35 @@ class Group extends Error {
 
 		db_commit();
 
+		//
+		// Monitor forums and trackers
+		//
+
+		if ($this->usesForum()) {
+			$ff = new ForumFactory($this);
+			$f_arr =& $ff->getForums();
+			
+			for ($i=0; $i<count($f_arr); $i++) {
+				if (!is_object($f_arr[$i])) {
+					echo "Not Object: Forum: ".$i;
+					continue;
+				}
+				$f_arr[$i]->setMonitor($idadmin_group) ;
+			}
+		}
+
+		if ($this->usesTracker()) {
+			$atf = new ArtifactTypeFactory($this);
+			$at_arr =& $atf->getArtifactTypes();
+			for ($i=0; $i<count($at_arr); $i++) {
+				if (!is_object($at_arr[$i])) {
+					echo "Not Object: ArtifactType: ".$i;
+					continue;
+				}
+				$at_arr[$i]->setMonitor($idadmin_group);
+			}
+		}
+
 		$this->sendApprovalEmail();
 		$this->addHistory(_('Approved'), 'x');
 
