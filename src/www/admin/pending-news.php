@@ -167,6 +167,7 @@ AND news_bytes.group_id=groups.group_id ", array($id));
 	*/
 
 	$old_date = time()-60*60*24*30;
+	$old_date = 0;
 	$qpa_pending = db_construct_qpa (false, 'SELECT groups.group_id,id,post_date,summary,
 				group_name,unix_group_name
 			FROM news_bytes,groups
