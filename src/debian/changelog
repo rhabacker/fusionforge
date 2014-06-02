@@ -1,10 +1,19 @@
-fusionforge (5.3+adullact1) UNRELEASED; urgency=medium
+fusionforge (5.3+adullact0) UNRELEASED; urgency=medium
 
   * Adullact-specific integration branch based on 5.3.  Includes the
     following feature branches:
-    * [none merged yet]
+    * adullact-strings
+    * auto-monitor-forums-and-trackers
+    * canonicalize-project-tags
+    * default-list-config
+    * default-page-for-project-sites
+    * display-all-pending-news
+    * password-strength-check
+    * pending-tasks-reminder
+    * robots-txt
+    * theme-adullactv3
 
- -- Roland Mas <roland@gnurandal.com>  Mon, 02 Jun 2014 13:25:12 +0200
+ -- Roland Mas <roland@gnurandal.com>  Mon, 02 Jun 2014 14:11:43 +0200
 
 fusionforge (5.3+20140522-0) UNRELEASED; urgency=medium
 
