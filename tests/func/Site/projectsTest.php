@@ -149,9 +149,9 @@ class CreateProject extends FForge_SeleniumTestCase
 		$this->assertTrue($this->isTextPresent("Tracker created successfully"));
 
 		$this->init();
-		$this->assertTrue($this->isElementPresent("//a//*[normalize-space(.)='Tracker']"));
-		$this->assertTrue($this->isElementPresent("//a//*[normalize-space(.)='Forums']"));
-		$this->assertTrue($this->isElementPresent("//a//*[normalize-space(.)='Tasks']"));
+		$this->assertTrue($this->isElementPresent("//a[normalize-space(.)='Tracker']"));
+		$this->assertTrue($this->isElementPresent("//a[normalize-space(.)='Forums']"));
+		$this->assertTrue($this->isElementPresent("//a[normalize-space(.)='Tasks']"));
 		$this->click("link=Tracker");
 		$this->waitForPageToLoad("30000");
 		$this->assertTrue($this->isTextPresent("Tracker for ProjectA (projecta)"));
