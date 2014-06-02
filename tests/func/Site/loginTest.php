@@ -69,7 +69,6 @@ class LoginProcess extends FForge_SeleniumTestCase
 		$this->type("form_pw", FORGE_ADMIN_PASSWORD);
 		$this->click("login");
 		$this->waitForPageToLoad("30000");
-		$this->assertTrue($this->isTextPresent("Forge Admin"));
 		$this->assertTrue($this->isTextPresent("Log Out"));
 		$this->logout();
 		// Verify that logout is succesfull
@@ -84,7 +83,7 @@ class LoginProcess extends FForge_SeleniumTestCase
 		$this->click("login");
 		sleep (1);
 		$this->assertTrue($this->isTextPresent("Login"));
-		$this->assertFalse($this->isTextPresent("Forge Admin"));
+		$this->assertFalse($this->isTextPresent("Log Out"));
 		$this->assertTrue($this->isTextPresent("Log In"));
 
 		// Test with a wrong password.
@@ -96,12 +95,11 @@ class LoginProcess extends FForge_SeleniumTestCase
 		$this->click("login");
 		$this->waitForPageToLoad("30000");
 		$this->assertTrue($this->isTextPresent("Invalid Password Or User Name"));
-		$this->assertFalse($this->isTextPresent("Forge Admin"));
+		$this->assertFalse($this->isTextPresent("Log Out"));
 		$this->assertTrue($this->isTextPresent("Log In"));
 
 		// Test factored code.
 		$this->login(FORGE_ADMIN_USERNAME);
-		$this->assertTrue($this->isTextPresent("Forge Admin"));
 		$this->assertTrue($this->isTextPresent("Log Out"));
 
 		$this->clickAndWait("link=Site Admin");
@@ -120,8 +118,6 @@ class LoginProcess extends FForge_SeleniumTestCase
 		$this->type("form_pw", FORGE_OTHER_PASSWORD);
 		$this->click("login");
 		$this->waitForPageToLoad("30000");
-		$this->assertTrue($this->isTextPresent("Forge Admin"));
-		$this->assertTrue($this->isTextPresent("Log Out"));
 		$this->assertTrue($this->isTextPresent("Log Out"));
 	}
 

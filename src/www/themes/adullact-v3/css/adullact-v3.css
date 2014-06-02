@@ -1,0 +1,724 @@
+/*
+-----------------------------------------------
+Styles "Adullact-V3.5"
+
+media:    all
+auteur:   Matthieu Faure
+version:  08/01/2010
+
+Notes:
+- is built over CSS YUI http://developer.yahoo.com/yui/
+- Theme's CSS must be called *after* YUI ones
+- font sizes must be expressed in % and according to YUI size table http://developer.yahoo.com/yui/fonts/#chart
+----------------------------------------------- */
+
+/* surcharges balises utilisees partout
+----------------------------------------------- */
+a {
+	color: #0856a3;
+}
+
+th,
+td {
+	border:none;
+}
+
+input[type="text"], input[type="password"], textarea {
+	width: auto;
+}
+
+/* classes generiques
+----------------------------------------------- */
+.skip {
+	height:0;
+	width:0;
+	left:-19000px;
+	overflow:hidden;
+	position:absolute;
+}
+
+.lien-soulignement a {
+	text-decoration: none;
+}
+
+.lien-soulignement a:hover {
+	text-decoration: underline;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align:center;
+}
+
+.dot-link {
+	background: url(../image/puce_3_violet_horizontal.png) 0% 50% no-repeat;
+	padding: 0 0 0 22px;
+}
+
+.blue-box {
+	background: #e5eff5;
+	border-top: solid 1px #c9c9c9;
+	border-bottom: solid 1px #c9c9c9;
+	margin: 1em 0;
+	padding: 1em;
+}
+
+.bordure-dessous {
+	border-bottom: solid 1px #c9c9c9;
+}
+
+.bordure-dessus {
+	border-top: solid 1px #c9c9c9;
+}
+
+.first-title-in-column {
+	margin-top: 0;
+}
+
+.bgcolor-grey {
+	background-color: #e5e5e5;
+}
+
+.bgcolor-white {
+	background-color: white;
+}
+
+.width-100 {
+	width: 100%;
+}
+
+.adullact-data-table {
+	width: 100%;
+}
+
+.adullact-data-table tr {
+	border-bottom: solid 1px #c9c9c9;
+}
+
+.adullact-data-table th {
+	background-color: #e8dfd4;
+	vertical-align:middle;
+}
+
+.adullact-data-table td {
+	vertical-align:middle;
+}
+
+.field-holder {
+    clear: both;
+}
+
+/* =clearfix
+ -------------------------------------------------- */
+/* clearfix/easyclearing: cf http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+
+/* header
+----------------------------------------------- */
+#hd {
+	background: #002359 url(../image/hd_bande_haut_petit_logo_BIG.jpg) top left no-repeat;
+	width: 100%;
+	margin:0;
+}
+
+#hd tr {
+}
+
+#hd td {
+	border:	none;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+#hd-col1 {
+	width: 200px;
+}
+
+#hd-col2 {
+}
+
+#hd-col1 h1 {
+	margin:0;
+    padding:0;
+}
+
+/* header > login-box
+----------------------------------------------- */
+#login-box {
+	float: right;
+	background-color: #0061ae;
+	color: white;
+	font-size: 85%; /* 11px */
+	padding: 1em 0.5em 1em 0em;
+}
+
+#login-box a {
+	background-color: #0061ae;
+	color: white;	
+}
+
+#login-box-login {
+	background: url(../image/hd_picto_gris_identification.png) 0% 50% no-repeat;
+	padding: 7px 5px 3px 27px;
+}
+
+#login-box-newaccount {
+	background: url(../image/hd_picto_gris_nouveau_compte.png) 0% 50% no-repeat;
+	padding: 7px 5px 3px 27px;
+}
+
+#login-box-logout {
+	background: url(../image/hd_picto_gris_identification.png) 0% 50% no-repeat;
+	/* image non specifiee. MF: reprise de celle de "login" */
+	padding: 7px 5px 3px 27px;
+}
+
+#login-box-myaccount {
+	background: url(../image/hd_picto_gris_nouveau_compte.png) 0% 50% no-repeat;
+	/* image non specifiee. MF: reprise de celle de "newaccount" */
+	padding: 7px 5px 3px 27px;
+}
+
+/* header > search-box
+----------------------------------------------- */
+#search-box {
+	float: right;
+	clear: right;
+	padding: 0em 0.5em 2em 0em;
+}
+
+#search-box select {
+    vertical-align:middle;
+}
+
+#search-type,
+#search-words,
+#search-submit,
+#advanced-search {
+	margin-right: 0.5em;
+    vertical-align:middle;
+}
+
+#advanced-search img {vertical-align:middle; }
+
+/* header > nav
+----------------------------------------------- */
+#nav {
+	float: right;
+	clear: right;
+	width: 100%;
+	font-size: 93%; /* 12px */
+}
+
+#nav .tab,
+#nav table {
+	margin: 0;
+}
+
+.tab li {
+	list-style: none;
+	display: inline;
+}
+
+.tab li,
+#nav td {
+	font-weight: bold;
+	padding: 0.3em 1em 0 1em;
+	margin: 0 1em;
+}
+
+.tab li.tab-selected,
+#nav td.tab-selected,
+.tab li.tab-selected a,
+#nav td.tab-selected a{
+	color: #790e11;
+	background: #e8dfd4;
+}
+
+.tab li a,
+#nav td a {
+	color: white;
+}
+
+/* header > nav2
+----------------------------------------------- */
+#nav2 {
+	width: 100%;
+	font-size: 93%; /* 12px */
+	background: #E8DFD4;
+	padding: 0.7em 0 0 0;
+	margin: 0 0 2em 0;
+}
+
+#nav2 table {
+	margin:0 1%;
+}
+
+#nav2 a {
+	color: #0856a3;
+}
+
+#nav2 .tab,
+#nav2 td {
+	margin: 0;
+	font-weight: bold;
+}
+
+#nav2 .tab li.tab-selected,
+#nav2 td.tab-selected {
+	color: #790e11;
+	background: white;	
+}
+
+    
+/* bd (main table)
+----------------------------------------------- */
+#bd td {
+    border: none;
+    vertical-align: top;
+    text-align: left;
+}
+
+h2 {
+    color: #790e11;
+}
+
+h3 {
+    color: #790e11;
+    font-size: 85%; /* 11px */
+}
+
+/* #bd-col1
+----------------------------------------------- */
+#bd-col1 {
+    width: 75%;
+}
+
+#bd-col1-first-title {
+    margin-top: 0;
+}
+
+#bd-col1 table {
+    width: 100%;
+}
+
+#stats-forges-partenaires .align-right {
+    text-align: right;
+}
+
+#stats-forges-partenaires td {
+    padding: 0.1em;
+}
+
+#recherche-globale {
+    border-bottom: solid 1px #c9c9c9;
+    padding: 0.2em 0;   
+}
+
+#globalsearch input {
+    margin-right: 0.5em;
+}
+
+#globalsearch-gwords {
+    margin-bottom: 0.5em;
+}
+
+#presentation-forge {
+    border-top: solid 1px #c9c9c9;
+    border-bottom: solid 1px #c9c9c9;
+    margin: 0 0 1em 0;
+}
+
+#logo-feder {
+    text-align:center;
+    margin-top: 3em;
+}
+
+#logo-citic74 {
+    text-align:center;
+    margin-top: 3em;
+}
+
+/* #bd-col2
+----------------------------------------------- */
+#presentation-forge div {
+    background: #e5eff5;
+    padding: 1em;
+    margin: 0.2em 0;
+}
+
+#presentation-forge h2 {
+    color: #8c9cb2;
+    margin: 0 0 1em 0;
+}
+
+#selection-metier h2 {
+    margin: 2em 0 0.1em 0;
+}
+
+#selection-metier div {
+    border-top: solid 1px #c9c9c9;
+    border-bottom: solid 1px #c9c9c9;   
+}
+
+#selection-metier table {
+    width: 100%;
+    background: #e8dfd4;
+    margin: 0.2em 0;
+    border-collapse: separate;
+    border-spacing: 0.5em;
+}
+#selection-metier table tr {
+    
+}
+
+#selection-metier table td {
+    
+}
+
+#selection-metier a {
+    padding: 0.5em 0 0.5em 40px;
+    font-weight: bold;
+}
+
+#metier-collectivite    { background: url(../image/metier_collectivites.png)    0% 50% no-repeat}
+#metier-sante           { background: url(../image/metier_sante.png)            0% 50% no-repeat}
+#metier-administration  { background: url(../image/metier_administrations.png)  0% 50% no-repeat}
+#metier-education       { background: url(../image/metier_education.png)        0% 50% no-repeat}
+#metier-association     { background: url(../image/metier_associations.png)     0% 50% no-repeat}
+#metier-informatique    { background: url(../image/metier_informatique.png)     0% 50% no-repeat}
+
+#dernieres-annonces h2 {
+    margin: 2em 0 0.1em 0;
+}
+
+/* #bd-col3
+----------------------------------------------- */
+#bd-col3 {}
+
+#bd-col3 table {
+    width: 100%;
+    margin-bottom: 0.3em;
+}
+
+.bd-col3-title  {
+    margin-top: 3em;
+}
+
+#bd-col3-first-title {
+    margin-top: 0;
+}
+
+
+.width-stat-col1 {
+    width: 25%;
+}
+
+#sitestats td,
+#top-downloads td,
+#newest-projects td,
+#highest-ranked td {
+    padding: 0.1em;
+}
+
+#title_Features_Boxes {
+    display: none;
+}
+
+#Features_Boxes #title_Associated_Forges {
+    margin-top: 0;
+}
+
+#Features_Boxes h3 {
+    margin-top: 3em;
+}
+
+#Recently_Registered_Projects td {
+    padding: 0.2em;
+}
+
+#search_associated_forges {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#search_associated_forges_submit {
+    margin-top: 4px;
+    padding-left: 5px;
+}
+
+
+/*
+ * Page "en bref" (project-home)
+ * ============================================
+ */
+#forge-project-home h2, #forge-project-home h3 {
+    border-bottom: 1px solid #C9C9C9;
+    color: #790E11;
+}
+#forge-project-home h2 {
+    font-size: 138.5%;
+}
+
+#forge-project-home h3 {
+    font-size: 123.1%;
+}
+
+#Latest_File_Releases th {
+    background: #E8DFD4 none repeat scroll 0 0;
+}
+
+#Latest_File_Releases tr {
+    border-bottom: 1px solid #C9C9C9;
+}
+
+#Latest_File_Releases table {
+	width: 100%;
+}
+
+#forge-project-home table, #forge-project-home th, #forge-project-home td {
+    border: medium none;
+    vertical-align: top;
+}
+
+#latest-news {
+    width: 50%; 
+}
+
+#latest-news .one-news {
+    border-bottom: solid 1px #c9c9c9;
+    margin-bottom: 1em;
+    padding-bottom: 0.2em;
+}
+
+#title_Project_page_title div {
+    background: none;
+}
+
+#Project_page_title {
+    background: none;
+}
+
+#title_Project_summary {
+    display: none;
+}
+
+#Project_summary {
+    background: none;
+}
+/*
+#surround_Project_summary {
+    float: left;
+    width: 80%;
+}
+
+#surround_Developer_Info {
+    float: right;
+    width: 20%;
+}
+
+#surround_Latest_File_Releases {
+    clear: both;
+    padding-top: 2em;
+}
+
+#surround_Public_Areas {
+    float: left;
+    width: 49%;
+    padding-top: 2em;
+}
+*/
+#surround_Public_Areas .public-area-box:last-child {
+    border-bottom: none;    
+}
+
+.public-area-box {
+    border-bottom:1px solid #C9C9C9;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+/*
+#Project_page_title #surround_Latest_News {
+    float: right;
+    width: 50%;
+    padding-top: 2em;
+}
+*/
+
+/*
+ * Page "fichiers" (frs)
+ * ============================================
+ */
+
+#forge-frs table,
+#forge-frs th,
+#forge-frs td {
+    border: none;
+}
+
+#forge-frs .blue-box {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.frs-table-files {
+    width: 100%;
+    margin: 0 0 2.5em 0;
+}
+
+.frs-table-files th {
+    background: #e8dfd4;
+}
+
+.frs-table-files tr {
+    border-bottom: solid 1px #c9c9c9;
+}
+
+.frs-table-files th,
+.frs-table-files td {
+    vertical-align:middle;
+}
+
+.frs-table-files h3 {
+    margin:0;
+}
+
+#frs-stats {
+    background: #e5eff5;
+}
+
+#forge-frs h2 {
+    padding-top: 1em;
+}
+
+#forge-frs h3 {
+    font-size: small;
+}
+
+#forge-frs .adullact-data-table {
+    padding-left: 2em;
+}
+
+#forge-frs .adullact-data-table th {
+    width: 12%;
+}
+
+#forge-frs .adullact-data-table th{
+    text-align: center;
+}
+
+#forge-frs .adullact-data-table td {
+    text-align: center;
+}
+
+/* in order to remove br tags in translations */
+#forge-frs h3 br {
+    /*display : none;*/
+}
+
+/*
+ * Page "arbre des projets" (trove_list)
+ * ============================================
+ */
+
+#arbre-projets {
+    
+}
+
+#arbre-projets table {
+    width: 100%;
+    vertical-align: top;
+}
+
+#arbre-projets td {
+    vertical-align: top;
+}
+
+#arbre-projets-col2 {
+    width: 30%;
+}
+
+#arbre-projets-branches {
+    margin: 1em 0;
+}
+
+#arbre-projets-branches li {
+    list-style-type:none;
+    margin: 0 0 0.2em 0;
+}
+
+#arbre-projets-branches .current-cat {
+    background-color: #c9c9c9;
+}
+
+/*
+ * Page "snippets"
+ * ============================================
+ */
+#snippet_submit label {
+    display: block;
+    font-weight: bold;
+}
+
+#snippet_submit input {
+    clear: both;
+}
+
+/*
+ * Page: /my/
+ * ============================================
+ */
+ .tabberlive-user-homepage ul.tabbernav {
+     display: none; 
+}
+
+/* ft (footer)
+----------------------------------------------- */
+#ft {
+    margin: 1em 0 0 0;
+}
+#ft table {
+    width: 100%;
+    background: #e0ebf1 url(../image/ft_background.jpg) top left repeat-x;
+}
+
+#ft td {
+    border: none;
+    vertical-align:middle;
+    text-align: left;
+}
+
+#ft .col1,
+#ft .col2 {
+    text-align: left;
+}
+
+#ft .col3 {
+    text-align: right;
+}
+
+.gototop {
+    background: url(../image/picto_gototop.png) 100% 50% no-repeat;
+    padding: 0.5em 1em 0.5em 0;
+}

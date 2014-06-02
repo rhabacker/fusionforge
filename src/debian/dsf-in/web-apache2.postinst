@@ -98,6 +98,8 @@ case "$1" in
             fi
             a2ensite @PACKAGE@.conf || a2ensite @PACKAGE@
 	fi
+
+	/usr/share/@OLDPACKAGE@/bin/register-theme adullact-v3 Adullact
 	
 	# Make Apache see these new changes
 	invoke-rc.d apache2 restart || true
