@@ -9,6 +9,7 @@ cronjobs/db_project_sums.php            @SOURCE_PATH@/cronjobs/
 cronjobs/check_stale_tracker_items.php  @SOURCE_PATH@/cronjobs/
 cronjobs/project_weekly_metric.php      @SOURCE_PATH@/cronjobs/
 cronjobs/rotate_activity.php            @SOURCE_PATH@/cronjobs/
+cronjobs/daily_task_email.php           @SOURCE_PATH@/cronjobs/
 #
 cronjobs/site_stats.php                 @SOURCE_PATH@/cronjobs/
 cronjobs/stats_site.inc                 @SOURCE_PATH@/cronjobs/
