@@ -1,0 +1,52 @@
+Author: Roland Mas <lolando@debian.org>
+Description: Use JQuery as provided by the libjs-jquery Debian package
+Index: src/www/include/html.php
+===================================================================
+--- src.orig/www/include/html.php
++++ src/www/include/html.php
+@@ -433,14 +433,14 @@
+ }
+ 
+ function html_use_jquery() {
+-	use_javascript('/scripts/jquery/jquery-1.8.3.js');
++	use_javascript('/javascript/jquery/jquery.min.js');
+ }
+ 
+ function html_use_tooltips() {
+ 	html_use_jquery();
+-	use_javascript('/scripts/jquery-tipsy/src/javascripts/jquery.tipsy.js');
++	use_javascript('/javascript/jquery-tipsy/jquery.tipsy.js');
+ 	use_javascript('/js/jquery-common.js');
+-	use_stylesheet('/scripts/jquery-tipsy/src/stylesheets/tipsy.css');
++	use_stylesheet('/javascript/jquery-tipsy/stylesheets/tipsy.css');
+ }
+ 
+ function html_use_storage() {
+@@ -463,8 +463,8 @@
+ 
+ function html_use_jqueryui() {
+ 	html_use_jquery();
+-	use_javascript('/scripts/jquery-ui/js/jquery-ui-1.9.2.custom.js');
+-	use_stylesheet('/scripts/jquery-ui/css/overcast/jquery-ui-1.9.2.custom.css');
++	use_javascript('/javascript/jquery-ui/jquery-ui.js');
++	use_stylesheet('/javascript/jquery-ui-themes/overcast/jquery-ui.css');
+ }
+ 
+ function html_use_jqueryjqplot() {
+Index: src/etc/httpd.conf.d/vhost-main.inc
+===================================================================
+--- src.orig/etc/httpd.conf.d/vhost-main.inc
++++ src/etc/httpd.conf.d/vhost-main.inc
+@@ -34,9 +34,9 @@
+ 
+ Alias /images/ {core/source_path}/www/images/
+ Alias /scripts/coolfieldset/ {core/source_path}/vendor/coolfieldset/
+-Alias /scripts/jquery/ {core/source_path}/vendor/jquery/
+-Alias /scripts/jquery-ui/ {core/source_path}/vendor/jquery-ui/
+-Alias /scripts/jquery-tipsy/ {core/source_path}/vendor/jquery-tipsy/
++# Alias /scripts/jquery/ {core/source_path}/vendor/jquery/
++# Alias /scripts/jquery-ui/ {core/source_path}/vendor/jquery-ui/
++# Alias /scripts/jquery-tipsy/ {core/source_path}/vendor/jquery-tipsy/
+ Alias /scripts/jquery-storage/ {core/source_path}/vendor/jquery-storage/
+ Alias /scripts/jquery-simpletreemenu/ {core/source_path}/vendor/jquery-simpletreemenu/
+ Alias /scripts/jquery-jqplot/ {core/source_path}/vendor/jquery-jqplot/
