@@ -113,13 +113,13 @@ for ($i=0; $i<$rows; $i++) {
 				$listConfig .= "subscribe_policy = 3\n" ;
 				## Reject mails sent by non-members
 				$listConfig .= "generic_nonmember_action = 2\n";
-				## Do not forward auto discard message
-				$listConfig .= "forward_auto_discards = 0\n";
 			} else {
 				$listConfig .= "archive_private = False\n" ;
 				$listConfig .= "advertised = True\n" ;
 				$listConfig .= "subscribe_policy = 1\n" ;
 			}
+			## Do not forward auto discard message
+			$listConfig .= "forward_auto_discards = 0\n";
 			fwrite($fh, $listConfig);
 			if (is_readable($custom_file)) fwrite($fh, file_get_contents($custom_file));
 			fclose($fh);
