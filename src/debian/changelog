@@ -12,8 +12,9 @@ fusionforge (5.3+adullact0) UNRELEASED; urgency=medium
     * pending-tasks-reminder
     * robots-txt
     * theme-adullactv3
+    * concurrent-ssh-http-for-scm-5.3
 
- -- Roland Mas <roland@gnurandal.com>  Mon, 02 Jun 2014 14:11:43 +0200
+ -- Roland Mas <roland@gnurandal.com>  Tue, 03 Jun 2014 10:46:05 +0200
 
 fusionforge (5.3+20140522-0) UNRELEASED; urgency=medium
 
