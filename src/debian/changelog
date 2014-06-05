@@ -1,6 +1,10 @@
 fusionforge (5.3+20140604-2) UNRELEASED; urgency=medium
 
-  * 
+  [ Sylvain Beucler ]
+  * New upstream snapshot following the 5.3 upstream release.
+  (closes: #687387, #675158, #676243, #676364, #679934)
+  (closes: #680206, #680206, #685081, #721601, #679369)
+  (closes: #675159, #675044)
 
  -- Roland Mas <lolando@debian.org>  Wed, 04 Jun 2014 14:08:31 +0200
 
