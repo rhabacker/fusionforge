@@ -18,9 +18,8 @@ $HTML->header(array('title'=>_('Welcome'),'pagename'=>'home'));
 <ul>
 <li><em>Editeur</em> : ADULLACT</li>
 <li><em>Directeur de la publication</em> : Pascal Kuczynski, directeur technique ADULLACT</li>
-<li><em>Hébergement</em> : <a href="http://www.citic74.fr/">CITIC74</a>, partenaire de l'ADULLACT<br>
-Le CITIC74 (Centre de l’Informatique et des TIC de Haute-Savoie) est dédié aux structures publiques du département 74.
-</li>
+<li><em>Hébergement</em> : <a href="http://www.pole-aquinetic.fr/">AQUINETIC</a>, partenaire de l'ADULLACT<br>
+<a href="http://www.univ-pau.fr/">Université de Pau et des Pays de l'Adour</a> à Pau</li>
 </ul>
 
 			</div>
