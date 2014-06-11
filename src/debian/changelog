@@ -1,4 +1,4 @@
-fusionforge (5.3+adullact0) UNRELEASED; urgency=medium
+fusionforge (5.3.1+adullact0) UNRELEASED; urgency=medium
 
   * Adullact-specific integration branch based on 5.3.  Includes the
     following feature branches:
@@ -14,18 +14,30 @@ fusionforge (5.3+adullact0) UNRELEASED; urgency=medium
     * theme-adullactv3
     * concurrent-ssh-http-for-scm-5.3
 
- -- Roland Mas <roland@gnurandal.com>  Tue, 03 Jun 2014 10:46:05 +0200
+ -- Roland Mas <roland@gnurandal.com>  Wed, 11 Jun 2014 11:32:49 +0200
 
-fusionforge (5.3+20140522-0) UNRELEASED; urgency=medium
+fusionforge (5.3.1-1) unstable; urgency=medium
 
   [ Sylvain Beucler ]
-  * New upstream release following the 5.3 upstream release.
-    (closes: #674660, #606076, #551928, #692583, #711098, #711095, #660200, #678025, #396164, #649184, #597709, #677329, #649989, #649894, #606439).
+  * New upstream release.
+  (closes: #687387, #675158, #676243, #676364, #679934)
+  (closes: #680206, #680206, #685081, #721601, #679369)
+  (closes: #675159, #675044)
+
+ -- Roland Mas <lolando@debian.org>  Fri, 06 Jun 2014 13:49:11 +0200
+
+fusionforge (5.3+20140604-1) unstable; urgency=medium
+
+  [ Sylvain Beucler ]
+  * New upstream snapshot following the 5.3 upstream release.
+    (closes: #674660, #606076, #551928, #692583, #711098)
+    (closes: #711095, #660200, #678025, #396164, #649184)
+    (closes: #597709, #677329, #649989, #649894, #606439).
   * gforge-mta-postfix: use proxy:pgsql: rather than pgsql: so that
     Postfix daemons can access PostgreSQL from within their chroot
   * gforge-mta-postfix: don't overwrite 'mydestination'
   * Remove plugins 'fckeditor' and 'wiki' from source to avoid source-less
-    files issue (closes: #736107).
+    files issue (fixes 'source-is-missing') (closes: #736107).
   * fusionforge-plugin-blocks: remove dependency to
     gforge-shell-postgresql (closes: #674526).
   * fusionforge-minimal: recommends gforge-lists-mailman
@@ -33,8 +45,26 @@ fusionforge (5.3+20140522-0) UNRELEASED; urgency=medium
   * gforge-lists-mailman: remove dependency to apache2 (closes: #637302).
   * gforge-web-apache2-vhosts: fix typo in description (closes: #649195).
   * Bump Standards to 3.9.5 (no changes).
+  * Fix permissions or remove shebang when not needed
+    (fixes 'executable-not-elf-or-script').
+  * gforge-db-remote: depend on ${misc:Depends}
+    (fixes 'debhelper-but-no-misc-depends')
+  * Precise debhelper version (fixes
+    'debhelper-overrides-need-versioned-build-depends').
+  * Install ini files directly in /etc/fusionforge/, not through the
+    /etc/gforge/* symlinks (fixes 'binaries-have-file-conflict')
+  * gforge-common: add Lintian overrides for group-writable
+    'non-standard-dir-perm'
+  * fusionforge-plugin-scmhook: add Lintian overrides for
+    'script-not-executable' on template files
+  * fusionforge-plugin-admssw: word-wrap description (fixes
+    'extended-description-line-too-long')
+  * gforge-plugin-extratabs, gforge-plugin-globalsearch,
+    gforge-plugin-mediawiki, gforge-plugin-projectlabels,
+    gforge-plugin-scmgit: removed old transitional packages
+    (closes: #749935)
 
- -- Sylvain Beucler <beuc@debian.org>  Thu, 22 May 2014 10:39:52 +0200
+ -- Sylvain Beucler <beuc@debian.org>  Wed, 04 Jun 2014 09:45:30 +0200
 
 fusionforge (5.3+20140506-1) unstable; urgency=medium
 

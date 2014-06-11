@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Roland Mas <lolando@debian.org>
 Uploaders: Christian Bayle <bayle@debian.org>, Olivier Berger <obergix@debian.org>, Sylvain Beucler <beuc@debian.org>
 Build-Depends-Indep: sharutils, docbook-to-man, devscripts, gettext, isoquery, iso-codes
-Build-Depends: debhelper (>= 7), quilt (>= 0.40), perl, confget, moreutils
+Build-Depends: debhelper (>= 7.0.50~), quilt (>= 0.40), perl, confget, moreutils
 Standards-Version: 3.9.5
 Homepage: https://fusionforge.org/
 Vcs-Git: https://fusionforge.org/anonscm/git/deb-packaging/deb-packaging.git
@@ -135,6 +135,7 @@ Package: gforge-db-remote
 Architecture: all
 Provides: gforge-db
 Conflicts: gforge-db
+Depends: ${misc:Depends}
 Description: collaborative development tool - database (remote)
  FusionForge provides many tools to aid collaboration in a
  development project, such as bug-tracking, task management,
@@ -234,51 +235,6 @@ Description: collaborative development tool - mailing-lists (using Mailman)
  .
  This package controls the interaction between FusionForge and Mailman.
 
-Package: gforge-plugin-extratabs
-Architecture: all
-Section: oldlibs
-Priority: extra
-Depends: fusionforge-plugin-headermenu, ${misc:Depends}
-Description: Headermenu plugin for FusionForge (transitional package)
- This package is only present for transitional purposes and can be
- safely removed.
-
-Package: gforge-plugin-globalsearch
-Architecture: all
-Section: oldlibs
-Priority: extra
-Depends: fusionforge-plugin-globalsearch, ${misc:Depends}
-Description: Globalsearch plugin for FusionForge (transitional package)
- This package is only present for transitional purposes and can be
- safely removed.
-
-Package: gforge-plugin-mediawiki
-Architecture: all
-Section: oldlibs
-Priority: extra
-Depends: fusionforge-plugin-mediawiki, ${misc:Depends}
-Description: Mediawiki plugin for FusionForge (transitional package)
- This package is only present for transitional purposes and can be
- safely removed.
-
-Package: gforge-plugin-projectlabels
-Architecture: all
-Section: oldlibs
-Priority: extra
-Depends: fusionforge-plugin-projectlabels, ${misc:Depends}
-Description: Projectlabels plugin for FusionForge (transitional package)
- This package is only present for transitional purposes and can be
- safely removed.
-
-Package: gforge-plugin-scmgit
-Architecture: all
-Section: oldlibs
-Priority: extra
-Depends: fusionforge-plugin-scmgit, ${misc:Depends}
-Description: Git plugin for FusionForge (transitional package)
- This package is only present for transitional purposes and can be
- safely removed.
-
 Package: fusionforge-plugin-admssw
 Architecture: all
 Depends: gforge-common, gforge-db-postgresql | gforge-db, gforge-web-apache2 | gforge-web, php-http, fusionforge-plugin-doaprdf, libgraphite-php, ${misc:Depends}
@@ -289,9 +245,10 @@ Description: collaborative development tool - ADMS.SW plugin
  web/FTP hosting, release management, etc. All these services are
  integrated into one web site and managed through a web interface.
  .
- This plugin provides ADMS.SW additions to the DOAP RDF documents for projects on /projects URLs 
- with content-negociation (application/rdf+xml).
- 
+ This plugin provides ADMS.SW additions to the DOAP RDF documents for
+ projects on /projects URLs with content-negociation
+ (application/rdf+xml).
+
 Package: fusionforge-plugin-authcas
 Architecture: all
 Depends: gforge-common, gforge-db-postgresql | gforge-db, gforge-web-apache2 | gforge-web, php-cas, ${misc:Depends}
