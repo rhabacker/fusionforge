@@ -1,6 +1,6 @@
-fusionforge (5.3.1+adullact0) UNRELEASED; urgency=medium
+fusionforge (5.3.1+adullact1) adullact; urgency=medium
 
-  * Adullact-specific integration branch based on 5.3.  Includes the
+  * Adullact-specific integration branch based on 5.3.1.  Includes the
     following feature branches:
     * adullact-strings
     * auto-monitor-forums-and-trackers
@@ -14,7 +14,7 @@ fusionforge (5.3.1+adullact0) UNRELEASED; urgency=medium
     * theme-adullactv3
     * concurrent-ssh-http-for-scm-5.3
 
- -- Roland Mas <roland@gnurandal.com>  Wed, 11 Jun 2014 11:32:49 +0200
+ -- Roland Mas <roland@gnurandal.com>  Thu, 12 Jun 2014 08:57:40 +0200
 
 fusionforge (5.3.1-1) unstable; urgency=medium
 
