@@ -33,16 +33,11 @@ if [ -e ../fusionforge_$u.orig.tar.gz ] ; then
 fi
 
 # Make the tarball using git-archive(1)
-# Remove debian/, as well as plugins/fckeditor and plugins/wiki:
-# we don't package them and they include sourceless files (#736107)
 # TODO: don't bother with debian/ when moving to format "3.0 (quilt)"
 git archive --format=tar --prefix=fusionforge-$u/ $tag | tar x
 (
   cd fusionforge-$u/
-  rm -rf debian/ plugins/{fckeditor,wiki}/ etc/config.ini.d/{fckeditor,wiki}.ini etc/httpd.conf.d/plugin-{fckeditor,wiki}.inc
+  rm -rf debian/
 )
 tar czf ../fusionforge_$u.orig.tar.gz --owner 0 --group 0 fusionforge-$u/
 rm -rf fusionforge-$u/
-
-# Note: you need to build the package with:
-#debuild -i'etc|plugins'
