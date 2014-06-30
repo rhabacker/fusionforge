@@ -72,7 +72,9 @@ case "$1" in
 	    test -d /var/lib/gforge/plugins/mediawiki/projects/. && \
 	    move_mediawikis
 
-	upgrade_mediawikis
+	# Don't upgrade mediawikis at each update (long)
+	# Update them using Debian MediaWiki triggers instead.
+	#upgrade_mediawikis
 	;;
     
     abort-upgrade|abort-remove|abort-deconfigure)
