@@ -5,8 +5,8 @@ Index: src/common/tracker/Artifact.class.php
 ===================================================================
 --- src.orig/common/tracker/Artifact.class.php
 +++ src/common/tracker/Artifact.class.php
-@@ -1595,10 +1595,6 @@
- 				"\n".util_make_url ('/tracker/?atid='. $this->ArtifactType->getID() .
+@@ -1595,10 +1595,6 @@ class Artifact extends Error {
+ 				"\n".util_make_url ('/tracker/?func=detail&atid='. $this->ArtifactType->getID() .
  					    "&aid=". $this->getID() .
  					    "&group_id=". $this->ArtifactType->Group->getID()) .
 -				"\nOr by replying to this e-mail entering your response between the following markers: ".

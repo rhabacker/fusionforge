@@ -310,11 +310,14 @@ install: build
 # Remove extra copies of the GNU GPLv2
 	rm -f $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/usr/share/*/www/themes/*/COPYING
 
-# 	Remove Snoopy class from binary packages (provided by libphp-snoopy)
-	find $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) -name Snoopy.class.php | xargs -r rm
+# 	Replace Snoopy class from binary packages using libphp-snoopy (/usr/share/php/libphp-snoopy/Snoopy.class.php)
+#	Using ../../... links because lintian and DP 10.5 say so, surprisingly without justification
+	ln -nfs ../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmcvs/usr/share/gforge/plugins/scmcvs/common/Snoopy.class.php
+	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/usr/share/gforge/plugins/scmhook/library/scmgit/hooks/committracker/Snoopy.class.php
+	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/usr/share/gforge/plugins/scmhook/library/scmsvn/hooks/committracker/Snoopy.class.php
 
 # 	Remove NuSOAP class from binary packages (provided by libnusoap-php)
-	find $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) -name nusoap.php | xargs -r rm
+	find $(addprefix debian/, $(shell dh_listpackages)) -name nusoap.php | xargs -r rm
 
 # 	Remove some Jquery files from binary packages (provided by libjs-jquery*)
 	for i in jquery jquery-ui jquery-tipsy; do find $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) -type d -path */vendor/$$i ; done | xargs -r rm -rf

@@ -1,6 +1,5 @@
 disable-tracker-reply-by-email
 disable-dav
-use-snoopy-from-distro
 use-nusoap-from-distro
 use-jquery-from-distro
 use-simplepie-from-distro
