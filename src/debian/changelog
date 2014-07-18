@@ -5,7 +5,10 @@ fusionforge (5.3.1-2) UNRELEASED; urgency=medium
   * plugin 'wiki' fixes 'source-is-missing' in upstream sources
   * fusionforge-plugin-scmhook: link Snoopy.class.php from the packaged version
 
- -- Sylvain Beucler <beuc@debian.org>  Mon, 30 Jun 2014 15:03:51 +0200
+  [ Roland Mas ]
+  * fusionforge-plugin-sysauthldap: depend on -web-apache2 (closes: #754791).
+
+ -- Roland Mas <lolando@debian.org>  Fri, 18 Jul 2014 16:26:14 +0200
 
 fusionforge (5.3.1-1) unstable; urgency=medium
 
