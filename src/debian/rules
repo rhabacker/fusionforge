@@ -3,7 +3,7 @@
 # GNU copyright 1997 to 1999 by Joey Hess (sample file)
 # Copyright 2000 to 2002 by Roland Mas and Christian Bayle for the Sourceforge package
 # Copyright 2002 to 2008 by Roland Mas and Christian Bayle for the Gforge package
-# Copyright 2008 to 2010 by Roland Mas and Christian Bayle for the FusionForge package
+# Copyright 2008 to 2014 by Roland Mas and Christian Bayle for the FusionForge package
 # Copyright (C) 2014  Sylvain Beucler
 
 OLDPACKAGE=gforge
@@ -13,11 +13,12 @@ FORGENAME=FusionForge
 
 SOURCE_PATH:=$(shell utils/forge_get_config_basic fhs source_path)
 BINARY_PATH:=$(shell utils/forge_get_config_basic fhs binary_path)
-PLUGIN_PATH:=$(shell utils/forge_get_config_basic fhs plugins_path)
+PLUGINS_PATH:=$(shell utils/forge_get_config_basic fhs plugins_path)
 
 DATA_PATH:=$(shell utils/forge_get_config_basic fhs data_path)
 CONFIG_PATH:=$(shell utils/forge_get_config_basic fhs config_path)
 LOG_PATH:=$(shell utils/forge_get_config_basic fhs log_path)
+CHROOT_PATH:=$(shell utils/forge_get_config_basic fhs chroot)
 
 # Identify this FusionForge version
 # keep type intact and change forge in derivates,
@@ -28,14 +29,14 @@ WHICH_FORGE=FusionForge
 WHICH_VERSION:=$(shell dpkg-parsechangelog | sed -n '/^Version: /s///p')
 
 # Replace macros present in the files for forge's name
-SED_REPLACE=sed -e 's/@PACKAGE@/$(PACKAGE)/g' -e 's/@SRCPACKAGE@/$(SRCPACKAGE)/g' -e 's/@OLDPACKAGE@/$(OLDPACKAGE)/g' -e 's/@FORGENAME@/$(FORGENAME)/g'  -e 's:@SOURCE_PATH@:$(SOURCE_PATH):g' -e 's:@BINARY_PATH@:$(BINARY_PATH):g' -e 's:@PLUGIN_PATH@:$(PLUGIN_PATH):g' -e 's:@DATA_PATH@:$(DATA_PATH):g' -e 's:@CONFIG_PATH@:$(CONFIG_PATH):g' -e 's:@LOG_PATH@:$(LOG_PATH):g' 
+SED_REPLACE=sed -e 's/@PACKAGE@/$(PACKAGE)/g' -e 's/@SRCPACKAGE@/$(SRCPACKAGE)/g' -e 's/@OLDPACKAGE@/$(OLDPACKAGE)/g' -e 's/@FORGENAME@/$(FORGENAME)/g'  -e 's:@SOURCE_PATH@:$(SOURCE_PATH):g' -e 's:@BINARY_PATH@:$(BINARY_PATH):g' -e 's:@PLUGINS_PATH@:$(PLUGINS_PATH):g' -e 's:@DATA_PATH@:$(DATA_PATH):g' -e 's:@CONFIG_PATH@:$(CONFIG_PATH):g' -e 's:@LOG_PATH@:$(LOG_PATH):g'  -e 's:@CHROOT_PATH@:$(CHROOT_PATH):g' 
 
 DH=dh --with quilt
 
 default:
 	@echo $(PACKAGE) $(SOURCE_PATH)
 
-# The substitutions bellow can be quite tricky, so use 'debian/rules testpat' to check if it's OK
+# The substitutions below can be quite tricky, so use 'debian/rules testpat' to check if it's OK
 ENABLED_PLUGINS:=$(shell sh $(CURDIR)/utils/list-enabled-plugins.sh || echo error)
 ifeq (${ENABLED_PLUGINS},error)
 $(error list-enabled-plugins.sh failed)
@@ -276,33 +277,33 @@ install: build
 
 # 	Fix permissions
 	chmod 755 $(CURDIR)/debian/*/*/*/*/bin/* $(CURDIR)/debian/*/*/*/*/cronjobs/* \
-		$(CURDIR)/debian/*/bin/*  $(CURDIR)/debian/*/$(PLUGIN_PATH)/*/bin/* \
+		$(CURDIR)/debian/*/bin/*  $(CURDIR)/debian/*/$(PLUGINS_PATH)/*/bin/* \
 		$(CURDIR)/debian/*/usr/share/*/plugins/*/cronjobs/*
 	chmod 644 $(CURDIR)/debian/$(OLDPACKAGE)-db-postgresql/$(SOURCE_PATH)/cronjobs/*.inc
 
 #	Allow plugin activate/deactivate from plugin manager
 	chmod 2775     $(CURDIR)/debian/$(OLDPACKAGE)-common/$(SOURCE_PATH)/www/plugins/
 	chgrp www-data $(CURDIR)/debian/$(OLDPACKAGE)-common/$(SOURCE_PATH)/www/plugins/
-	chmod 2775     $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/gforge/plugins/
-	chgrp www-data $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/gforge/plugins/
+	chmod 2775     $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/plugins/
+	chgrp www-data $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/plugins/
 
 	rm $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/www/scm/viewvc/bin/cgi/viewvc-strace.sh
 
 	find $(CURDIR)/debian/$(OLDPACKAGE)-common/$(SOURCE_PATH)/common/docman/engine/ -type f -name \*.php -not -name \*.inc.php -exec chmod 0755 {} \;
 	find $(CURDIR)/debian/$(OLDPACKAGE)-common/$(SOURCE_PATH)/common/docman/engine/ -type f -name \*.sh -exec chmod 0755 {} \;
 
-	rm -f $(CURDIR)/debian/$(PACKAGE)-plugin-scm*/$(PLUGIN_PATH)/scm*/*/README
-	chmod 755 $(CURDIR)/debian/$(PACKAGE)-plugin-scmcvs/$(PLUGIN_PATH)/scmcvs/sbin/*
+	rm -f $(CURDIR)/debian/$(PACKAGE)-plugin-scm*/$(PLUGINS_PATH)/scm*/*/README
+	chmod 755 $(CURDIR)/debian/$(PACKAGE)-plugin-scmcvs/$(PLUGINS_PATH)/scmcvs/sbin/*
 
 # 	Rename config files
 	mv $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini-fhs $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini
-	mkdir -p $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(OLDPACKAGE)/httpd.conf.d
-	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.conf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(OLDPACKAGE)/httpd.conf.d/
-	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.inc $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(OLDPACKAGE)/httpd.conf.d/
-	cp $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf-fhs $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(OLDPACKAGE)/httpd.conf
+	mkdir -p $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d
+	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.conf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/
+	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.inc $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/
+	cp $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf-fhs $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf
 
 # 	Remove those that need to be generated at install time
-	grep -l {[a-z_]*/[a-z_]*} $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(OLDPACKAGE)/httpd.conf.d/* | xargs rm
+	grep -l {[a-z_]*/[a-z_]*} $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/* | xargs rm
 
 # 	Remove Windows files
 	rm -rf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/usr/share/*/www/scm/viewvc/windows
@@ -312,9 +313,9 @@ install: build
 
 # 	Replace Snoopy class from binary packages using libphp-snoopy (/usr/share/php/libphp-snoopy/Snoopy.class.php)
 #	Using ../../... links because lintian and DP 10.5 say so, surprisingly without justification
-	ln -nfs ../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmcvs/usr/share/gforge/plugins/scmcvs/common/Snoopy.class.php
-	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/usr/share/gforge/plugins/scmhook/library/scmgit/hooks/committracker/Snoopy.class.php
-	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/usr/share/gforge/plugins/scmhook/library/scmsvn/hooks/committracker/Snoopy.class.php
+	ln -nfs ../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmcvs/$(PLUGINS_PATH)/scmcvs/common/Snoopy.class.php
+	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/$(PLUGINS_PATH)/scmhook/library/scmgit/hooks/committracker/Snoopy.class.php
+	ln -nfs ../../../../../../../php/libphp-snoopy/Snoopy.class.php debian/fusionforge-plugin-scmhook/$(PLUGINS_PATH)/scmhook/library/scmsvn/hooks/committracker/Snoopy.class.php
 
 # 	Remove NuSOAP class from binary packages (provided by libnusoap-php)
 	find $(addprefix debian/, $(shell dh_listpackages)) -name nusoap.php | xargs -r rm
@@ -324,6 +325,9 @@ install: build
 
 # 	Remove potential SCM artefacts from binary packages
 	find $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) -name .svn -or -name {arch} -or -name .arch-ids -or -name .bzr -or -name .cvsignore | xargs -r rm -rf
+
+# 	Replace @FOO@ macros with their values
+	(find $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) -type f -\( -name \*.pl -or -name \*.php -or -name \*.sh -or -name \*.conf -or -name \*.sql -or -name *.rsyslog -\) ; grep -rl '^#! ?/usr/bin/perl' $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages)) ; grep -rl '#! ?/usr/bin/php' $(addprefix $(CURDIR)/debian/, $(shell dh_listpackages))) | sort -u | xargs $(SED_REPLACE) -i
 
 
 binary: install

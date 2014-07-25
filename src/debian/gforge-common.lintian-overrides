@@ -1,4 +1,4 @@
 # 2775 as recommended in DP 10.9
-# etc/gforge/plugins/
-# usr/share/gforge/www/plugins/
+# @CONFIG_PATH@/plugins/
+# @SOURCE_PATH@/www/plugins/
 gforge-common: non-standard-dir-perm

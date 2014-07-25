@@ -1,7 +1,7 @@
 upgrade_mediawikis () {
     # Upgrade Mediawiki database schemas
-    /usr/share/gforge/bin/list-projects-using-plugin.php mediawiki | while read i ; do
-	/usr/share/gforge/plugins/mediawiki/bin/mw-wrapper.php $i update.php --quick
+    $(forge_get_config binary_path)/list-projects-using-plugin.php mediawiki | while read i ; do
+	$(forge_get_config plugins_path)/mediawiki/bin/mw-wrapper.php $i update.php --quick
     done
 }
 
@@ -11,29 +11,29 @@ move_mediawikis() {
 
 	# Determine whether there are any wikis to move
 	found=0
-	for a in /var/lib/gforge/plugins/mediawiki/wikidata/*; do
+	for a in $(forge_get_config data_path)/plugins/mediawiki/wikidata/*; do
 		test -d "$a/." || continue
 		found=1
 		break
 	done
 	test $found = 1 || {
-		rmdir /var/lib/gforge/plugins/mediawiki/wikidata || \
-		    echo >&2 "WARNING: Could not delete /var/lib/gforge/plugins/mediawiki/wikidata"
+		rmdir $(forge_get_config data_path)/plugins/mediawiki/wikidata || \
+		    echo >&2 "WARNING: Could not delete $(forge_get_config data_path)/plugins/mediawiki/wikidata"
 		return 0
 	}
 
 	# Move wikis
 	(
-		cd /var/lib/gforge/plugins/mediawiki/wikidata
+		cd $(forge_get_config data_path)/plugins/mediawiki/wikidata
 		for a in *; do
 			test -d "$a/." || {
-				echo >&2 "WARNING: Non-directory /var/lib/gforge/plugins/mediawiki/wikidata/$a not migrated!"
+				echo >&2 "WARNING: Non-directory $(forge_get_config data_path)/plugins/mediawiki/wikidata/$a not migrated!"
 				continue
 			}
 			# Conflict?
 			b=../projects/$a
 			if test -e "$b"; then
-				b=$(mktemp "/var/lib/gforge/plugins/mediawiki/projects/$a-olddata-XXXXXXXXXX") || {
+				b=$(mktemp "$(forge_get_config data_path)/plugins/mediawiki/projects/$a-olddata-XXXXXXXXXX") || {
 					echo >&2 "Could not create temporary file."
 					exit 1
 				}
@@ -41,21 +41,21 @@ move_mediawikis() {
 			fi
 			# Move.
 			mv "$a" "$b" || \
-			    echo >&2 "WARNING: Could not move away /var/lib/gforge/plugins/mediawiki/wikidata/$a, investigate manually!"
+			    echo >&2 "WARNING: Could not move away $(forge_get_config data_path)/plugins/mediawiki/wikidata/$a, investigate manually!"
 		done
 	)
 
 	# Look again for remnants
 	found=0
-	for a in /var/lib/gforge/plugins/mediawiki/wikidata/*; do
+	for a in $(forge_get_config data_path)/plugins/mediawiki/wikidata/*; do
 		test -e "$a" || continue
-		echo >&2 "WARNING: Non-moved files in /var/lib/gforge/plugins/mediawiki/wikidata/ exist. Investigate manually!"
+		echo >&2 "WARNING: Non-moved files in $(forge_get_config data_path)/plugins/mediawiki/wikidata/ exist. Investigate manually!"
 		found=1
 		break
 	done
 	test $found = 1 || \
-	    rmdir /var/lib/gforge/plugins/mediawiki/wikidata || \
-	    echo >&2 "Could not delete empty /var/lib/gforge/plugins/mediawiki/wikidata"
+	    rmdir $(forge_get_config data_path)/plugins/mediawiki/wikidata || \
+	    echo >&2 "Could not delete empty $(forge_get_config data_path)/plugins/mediawiki/wikidata"
 	return 0
 }
 
@@ -68,8 +68,8 @@ case "$1" in
     
     configure)
 	# Data path changed
-	test -d /var/lib/gforge/plugins/mediawiki/wikidata/. && \
-	    test -d /var/lib/gforge/plugins/mediawiki/projects/. && \
+	test -d $(forge_get_config data_path)/plugins/mediawiki/wikidata/. && \
+	    test -d $(forge_get_config data_path)/plugins/mediawiki/projects/. && \
 	    move_mediawikis
 
 	# Don't upgrade mediawikis at each update (long)

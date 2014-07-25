@@ -61,10 +61,10 @@
     </para>
 
     <para><command>&dhpackage;</command> replaces (or creates) the
-      configuration files found in /etc/@PACKAGE@ with appropriate
+      configuration files found in @CONFIG_PATH@ with appropriate
       files derived from standard fill-in-the-blank templates (found
       in /usr/share/@PACKAGE@/templates).  The values used to fill in
-      the blanks are taken from /etc/@PACKAGE@/@PACKAGE@.conf.
+      the blanks are taken from @CONFIG_PATH@/@PACKAGE@.conf.
       @PACKAGE@-config HAS BEEN REMOVED AND IS NOT ANYMORE REQUIRED
     </para>
 
