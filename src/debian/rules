@@ -296,14 +296,15 @@ install: build
 	chmod 755 $(CURDIR)/debian/$(PACKAGE)-plugin-scmcvs/$(PLUGINS_PATH)/scmcvs/sbin/*
 
 # 	Rename config files
-	mv $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini-fhs $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini
-	mkdir -p $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d
-	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.conf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/
-	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.inc $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/
-	cp $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf-fhs $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf
+	mv $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/config.ini-fhs $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/config.ini
+
+	mkdir -p $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d
+	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.conf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d/
+	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.inc $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d/
+	cp $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf-fhs $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf
 
 # 	Remove those that need to be generated at install time
-	grep -l {[a-z_]*/[a-z_]*} $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/etc/$(PACKAGE)/httpd.conf.d/* | xargs rm
+	grep -l {[a-z_]*/[a-z_]*} $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d/* | xargs rm
 
 # 	Remove Windows files
 	rm -rf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/usr/share/*/www/scm/viewvc/windows
