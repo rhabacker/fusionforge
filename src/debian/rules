@@ -272,7 +272,7 @@ install: build
 	    -e 's!@PKGNAME@!${WHICH_FORGE}!g' \
 	    -e 's!@PKGVERSION@!${WHICH_VERSION}!g' \
 	    -e 's!@PLUCKERNAME@!${WHICH_TYPE}!g' \
-	    <$(CURDIR)/deb-specific/pkginfo.inc.php \
+	    <$(CURDIR)/common/pkginfo.inc.php.template \
 	    >$(CURDIR)/debian/$(OLDPACKAGE)-common/$(SOURCE_PATH)/common/pkginfo.inc.php
 
 # 	Fix permissions
