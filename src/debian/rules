@@ -296,7 +296,7 @@ install: build
 	chmod 755 $(CURDIR)/debian/$(PACKAGE)-plugin-scmcvs/$(PLUGINS_PATH)/scmcvs/sbin/*
 
 # 	Rename config files
-	mv $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/config.ini-fhs $(CURDIR)/debian/$(OLDPACKAGE)-common/$(CONFIG_PATH)/config.ini
+	mv $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini-fhs $(CURDIR)/debian/$(OLDPACKAGE)-common/etc/$(PACKAGE)/config.ini
 
 	mkdir -p $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d
 	cp -v $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(SOURCE_PATH)/etc/httpd.conf.d-fhs/*.conf $(CURDIR)/debian/$(OLDPACKAGE)-web-apache2/$(CONFIG_PATH)/httpd.conf.d/
