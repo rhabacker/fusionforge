@@ -42,7 +42,7 @@ if [ -d $CHECKOUTPATH/.svn ] ; then
 elif [ -d $CHECKOUTPATH/.bzr ] ; then
     MINOR=-$MINOR+bzr$(bzr revno)
 elif [ -d $CHECKOUTPATH/.git ] ; then
-    MINOR=-$MINOR+git$(git describe --always)
+    MINOR=-$MINOR+git$(git describe --always | sed s/=/+/g)
 else
     MINOR=-$MINOR+$(TZ=UTC date +%Y%m%d%H%M%S)
 fi
