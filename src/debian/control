@@ -363,7 +363,7 @@ Description: collaborative development tool - extsubproj plugin
 
 Package: fusionforge-plugin-foafprofiles
 Architecture: all
-Depends: gforge-common, gforge-db-postgresql | gforge-db, gforge-web-apache2 | gforge-web, ${misc:Depends}
+Depends: gforge-common, gforge-db-postgresql | gforge-db, gforge-web-apache2 | gforge-web, libarc-php, ${misc:Depends}
 Description: collaborative development tool - FOAF Profiles plugin
  FusionForge provides many tools to aid collaboration in a
  development project, such as bug-tracking, task management,
