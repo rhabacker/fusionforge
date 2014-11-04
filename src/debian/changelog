@@ -1,7 +1,7 @@
 fusionforge (5.3.2+20141104-1) unstable; urgency=medium
 
   * New upstream snapshot following the 5.3 stable branch.
-  (closes: #767931)
+  (closes: #767931, #754791)
 
  -- Sylvain Beucler <beuc@debian.org>  Tue, 04 Nov 2014 11:44:47 +0100
 
