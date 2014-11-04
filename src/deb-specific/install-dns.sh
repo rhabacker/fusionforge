@@ -10,6 +10,8 @@ if [ $(id -u) != 0 ] ; then
     exec su -c "$0 $1"
 fi
 
+data_path=$(forge_get_config data_path)
+
 
 case "$1" in
     configure-files)
@@ -18,7 +20,6 @@ case "$1" in
 	ip_address=`forge_get_config ip_address`
 	# export domain_name=$1
 	# export ip_address=$2
-	data_path=$(forge_get_config data_path)
   	if ! grep -q "// Next line inserted by GForge install" /etc/bind/named.conf.gforge-new ; then
 	    cat >> /etc/bind/named.conf.gforge-new <<-EOF
 // Next line inserted by GForge install
