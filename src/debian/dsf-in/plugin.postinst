@@ -29,7 +29,7 @@ case "$1" in
 	@BINARY_PATH@/upgrade-db.php @PLUGSHORTNAME@
 	# Restart apache if there is some change in config
 	if [ -f @CONFIG_PATH@/httpd.conf.d/plugin-@PLUGSHORTNAME@.inc ]; then
-	    service apache2 reload
+	    invoke-rc.d apache2 reload
 	fi
 	# Run plugin-specific install
 	if [ -f @PLUGINS_PATH@/@PLUGSHORTNAME@/bin/install.sh ]; then
