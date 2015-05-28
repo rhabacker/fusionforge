@@ -1,3 +1,11 @@
+fusionforge (5.3.2+20141104-3+deb8u1) stable-security; urgency=high
+
+  * CVE-2015-0850: Prevent arbitrary command execution via clone URL
+    parameter of the method to create secondary Git repositories. Found by
+    Ansgar Burchardt <ansgar@debian.org>.
+
+ -- Roland Mas <lolando@debian.org>  Thu, 28 May 2015 11:29:01 +0200
+
 fusionforge (5.3.2+20141104-3) unstable; urgency=medium
 
   * Support dpkg-1.17.17 and avoid a trigger loop by replacing 'interest'
