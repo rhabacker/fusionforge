@@ -635,8 +635,10 @@ Offer DAV or SSH access.");
 				}
 			}
 		}
-		$params['ids'][] = $this->name;
-		$params['texts'][] = _('Hg Commits');
+		if (!in_array($this->name, $params['ids'])) {
+			$params['ids'][] = $this->name;
+			$params['texts'][] = _('Hg Commits');
+		}
 		return true;
 	}
 
