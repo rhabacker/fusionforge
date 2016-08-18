@@ -288,7 +288,7 @@ function &globalactivity_getActivity($session_ser,$begin,$end,$show=array()) {
 	if (!forge_get_config('use_activity')
 		|| !$plugin) {
 		$fault = new soap_fault ('','globalactivity_getActivity','Global activity not available','Global activity not available');
-		return &$fault;
+		return $fault;
 	}
 
 	$ids = array();
