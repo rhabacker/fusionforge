@@ -244,7 +244,7 @@ class globalactivityPlugin extends Plugin {
 			$group_id = $arr['group_id'];
 			$hookParams['group'] = $group_id;
 			$hookParams['results'] = &$results;
-			$hookParams['show'] = &$show;
+			$hookParams['show'] = &$section;
 			$hookParams['begin'] = $begin;
 			$hookParams['end'] = $end;
 			$hookParams['ids'] = &$ids;
@@ -253,11 +253,12 @@ class globalactivityPlugin extends Plugin {
 		}
 
 		if (count($show) < 1) {
-			$show = $ids;
+			$show = $section;
 		}
 
 		foreach ($show as $showthis) {
 			if (array_search($showthis, $ids) === false) {
+error_log('anurst '.$showthis);
 				throw new Exception(_('Invalid Data Passed to query'));
 			}
 		}
@@ -286,7 +287,8 @@ function &globalactivity_getActivity($session_ser,$begin,$end,$show=array()) {
 	$plugin = plugin_get_object('globalactivity');
 	if (!forge_get_config('use_activity')
 		|| !$plugin) {
-		return new soap_fault ('','globalactivity_getActivity','Global activity not available','Global activity not available');
+		$fault = new soap_fault ('','globalactivity_getActivity','Global activity not available','Global activity not available');
+		return &$fault;
 	}
 
 	$ids = array();

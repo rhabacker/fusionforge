@@ -970,10 +970,14 @@ control over it to the project's administrator.");
 			// Grab commit log
 			$protocol = forge_get_config('use_ssl', 'scmgit') ? 'https://' : 'http://';
 			$u = session_get_user();
-			if ($project->enableAnonSCM())
+			if ($project->enableAnonSCM()) {
 				$server_script = '/anonscm/gitlog';
-			else
+			} else {
+				if (!$u) {
+					return true;
+				} 
 				$server_script = '/authscm/'.$u->getUnixName().'/gitlog';
+			}
 			$script_url = $protocol . forge_get_config('scm_host')
 				. $server_script
 				.'?unix_group_name='.$project->getUnixName()
