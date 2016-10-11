@@ -11,6 +11,7 @@ FusionForge 6.X:
 * Docman: support document versioning. (TrivialDev)
 * Docman: support cross ref. forum, documents, task or artifact. (TrivialDev)
 * FRS: link package release to tracker roadmap. (TrivialDev)
+* General: web UI now runs as a dedicated user, for better isolation (Roland Mas)
 * Layout: new dynamic quickNav menu: based on user activity to select 5 more visited projects (TrivialDev)
 * Plugin AuthBuiltin: add captcha after 3 attempts with the same login [#795] (TrivialDev)
 * Plugin AuthLDAP: support X_FORWARD_USER to delegate authentication and then retry user from LDAP (TrivialDev)
