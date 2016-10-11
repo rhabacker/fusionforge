@@ -23,6 +23,7 @@ set -e
 
 source_path=$(forge_get_config source_path)
 config_path=$(forge_get_config config_path)
+system_user=$(forge_get_config system_user)
 
 case "$1" in
     configure)
@@ -83,6 +84,7 @@ case "$1" in
 		-e "s,@database_user@,$database_user," \
 		> $DESTDIR$config_path/config.ini.d/post-install-secrets.ini
 	    chmod 600 $DESTDIR$config_path/config.ini.d/post-install-secrets.ini
+	    chown $system_user $DESTDIR$config_path/config.ini.d/post-install-secrets.ini
 	    sed -i -e '/^@secrets@/ { ' -e 'ecat' -e 'd }' \
 		$DESTDIR$config_path/config.ini.d/post-install-secrets.ini <<-EOF
 		session_key=$session_key
