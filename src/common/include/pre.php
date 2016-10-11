@@ -39,37 +39,6 @@ if (getStringFromServer('HTTP_X_moz') === 'prefetch'){
 	exit;
 }
 
-// Database access and other passwords when on the web
-function setconfigfromenv ($sec, $var, $serv, $env) {
-	if (getenv ('SERVER_SOFTWARE')) {
-		if (function_exists ('apache_request_headers')) {
-			$headers = apache_request_headers() ;
-		} else {
-			$headers = array () ;
-		}
-
-		if (isset ($headers[$serv])) {
-			forge_define_config_item ($var, $sec,
-						  $headers[$serv]) ;
-			return true;
-		}
-	}
-	if (isset ($_ENV[$env])) {
-		forge_define_config_item ($var, $sec,
-					  getenv($env)) ;
-		return true;
-	}
-	return false;
-}
-
-setconfigfromenv('core', 'database_host', 'FusionForgeDbhost', 'sys_gfdbhost');
-setconfigfromenv('core', 'database_port', 'FusionForgeDbport', 'sys_gfdbport');
-setconfigfromenv('core', 'database_name', 'FusionForgeDbname', 'sys_gfdbname');
-setconfigfromenv('core', 'database_user', 'FusionForgeDbuser', 'sys_gfdbuser');
-setconfigfromenv('core', 'database_password', 'FusionForgeDbpasswd', 'sys_gfdbpasswd');
-setconfigfromenv('core', 'ldap_password', 'FusionForgeLdapPasswd', 'sys_gfldap_passwd');
-setconfigfromenv('core', 'session_key', 'FusionForgeSessionKey', 'sys_session_key');
-
 forge_read_config_file($gfconfig.'/'.$gfcgfile);
 
 if (($ecf = forge_get_config ('extra_config_files')) != NULL) {

@@ -9,18 +9,11 @@ if [ -x /usr/sbin/slapd ] && [ -x /usr/bin/ldapadd ] ; then
 fi
 
 c=$(forge_get_config config_path)/config.ini.d/sysauthldap-secrets.ini
+system_user=$(forge_get_config system_user)
 if ! [ -e "$c" ] ; then
     touch $c
     chmod 600 $c
+    chown $system_user $c
     echo [sysauthldap] >> $c
     echo ldap_password = CHANGEME >> $c
 fi
-
-f=$(forge_get_config config_path)/httpd.conf.d/plugin-sysauthldap-secrets.inc
-if [ ! -e $f ] ; then
-    cp $(forge_get_config source_path)/etc/httpd.conf.d-fhs/plugin-sysauthldap-secrets.inc $f
-    chmod 600 $f
-    PATH=$(forge_get_config binary_path):$PATH manage-apache-config.sh install
-    mv $f.generated $f
-fi
-

@@ -31,9 +31,6 @@ forge_define_config_item('base_dn', 'sysauthldap', 'fromhost:$core/web_host');
 forge_define_config_item('bind_dn', 'sysauthldap', 'cn=admin,$sysauthldap/base_dn');
 forge_define_config_item('password', 'sysauthldap', '');
 
-setconfigfromenv ('sysauthldap', 'ldap_password',
-			 'GForgePluginSysAuthLdapPasswd', NULL);
-
 require_once $gfcommon.'include/SysAuthPlugin.class.php';
 
 class SysAuthLDAPPlugin extends SysAuthPlugin {
