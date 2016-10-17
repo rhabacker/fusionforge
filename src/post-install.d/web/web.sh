@@ -59,6 +59,7 @@ case "$1" in
 	apache_user=$(forge_get_config apache_user)
 	apache_group=$(forge_get_config apache_group)
 	apache_service=$(forge_get_config apache_service)
+	system_user=$(forge_get_config system_user)
 
 	if [ -x /usr/sbin/a2ensite ]; then
 	    ln -nfs $config_path/httpd.conf /etc/apache2/sites-available/fusionforge.conf
@@ -94,15 +95,14 @@ case "$1" in
 
 	# Setup Docman/FRS/Forum/Tracker/RSS attachments
 	# (not done in 'make install' because e.g. dpkg ignores existing dirs, cf. DP10.9[1])
-	chown $apache_user: $data_path/docman/
-	chown $apache_user: $data_path/download/
-	chown $apache_user: $data_path/forum/
-	chown $apache_user: $data_path/forum/pending/
-	chown $apache_user: $data_path/tracker/
-	chown $apache_user: $data_path/rss/
+	for i in docman	download forum forum/pending tracker rss ; do
+	    chown $system_user: $data_path/$i
+	    chmod 700 $data_path/$i
+	done
 
 	# Plugins activation from the web UI
-	chown $apache_user: $source_path/www/plugins/
+	chown $system_user: $source_path/www/plugins/
+	chmod 700 $source_path/www/plugins/
 
 	# Enable required modules
 	if [ -x /usr/sbin/a2enmod ]; then
