@@ -30,7 +30,7 @@ Package: fusionforge-plugin-mediawiki
 Depends: php-cli | php5-cli, mediawiki (>= 1:1.19.1-2~exp2)
 
 Package: fusionforge-plugin-moinmoin
-Depends: php-cli | php5-cli, python-moinmoin, python-psycopg2, libapache2-mod-wsgi
+Depends: php-cli | php5-cli, python-moinmoin, python-psycopg2, libapache2-mod-wsgi (>= 4.4.1)
 
 Package: fusionforge-plugin-admssw
 Depends: php-http, fusionforge-plugin-doaprdf, libgraphite-php

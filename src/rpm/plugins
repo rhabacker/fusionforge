@@ -59,7 +59,7 @@ Requires: mediawiki
 Requires:
 
 %package plugin-moinmoin
-Requires: moin, mod_wsgi, python-psycopg2
+Requires: moin, mod_wsgi >= 4.4.1, python-psycopg2
 
 %package plugin-online_help
 Requires:
