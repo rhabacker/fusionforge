@@ -54,7 +54,7 @@ class PluginManager extends FFError {
 	 */
 	function GetPlugins() {
 		$this->plugins_data = array();
-		$res = db_query_params('SELECT plugin_id, plugin_name FROM plugins',
+		$res = db_query_params('SELECT plugin_id, plugin_name FROM plugins ORDER BY plugin_name',
 				array());
 		$rows = db_numrows($res);
 		for ($i=0; $i<$rows; $i++) {
