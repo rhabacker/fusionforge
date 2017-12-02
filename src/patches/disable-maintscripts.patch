@@ -1,0 +1,205 @@
+Index: src/debian/fusionforge-common.postinst
+===================================================================
+--- src.orig/debian/fusionforge-common.postinst
++++ src/debian/fusionforge-common.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-common.postrm
+===================================================================
+--- src.orig/debian/fusionforge-common.postrm
++++ src/debian/fusionforge-common.postrm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postrm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-common.prerm
+===================================================================
+--- src.orig/debian/fusionforge-common.prerm
++++ src/debian/fusionforge-common.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-db-local.postinst
+===================================================================
+--- src.orig/debian/fusionforge-db-local.postinst
++++ src/debian/fusionforge-db-local.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-db-local.prerm
+===================================================================
+--- src.orig/debian/fusionforge-db-local.prerm
++++ src/debian/fusionforge-db-local.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-lists.postinst
+===================================================================
+--- src.orig/debian/fusionforge-lists.postinst
++++ src/debian/fusionforge-lists.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-lists.prerm
+===================================================================
+--- src.orig/debian/fusionforge-lists.prerm
++++ src/debian/fusionforge-lists.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-mta-exim4.postinst
+===================================================================
+--- src.orig/debian/fusionforge-mta-exim4.postinst
++++ src/debian/fusionforge-mta-exim4.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-mta-exim4.prerm
+===================================================================
+--- src.orig/debian/fusionforge-mta-exim4.prerm
++++ src/debian/fusionforge-mta-exim4.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-mta-postfix.postinst
+===================================================================
+--- src.orig/debian/fusionforge-mta-postfix.postinst
++++ src/debian/fusionforge-mta-postfix.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-mta-postfix.prerm
+===================================================================
+--- src.orig/debian/fusionforge-mta-postfix.prerm
++++ src/debian/fusionforge-mta-postfix.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-shell.postinst
+===================================================================
+--- src.orig/debian/fusionforge-shell.postinst
++++ src/debian/fusionforge-shell.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-shell.postrm
+===================================================================
+--- src.orig/debian/fusionforge-shell.postrm
++++ src/debian/fusionforge-shell.postrm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postrm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-shell.prerm
+===================================================================
+--- src.orig/debian/fusionforge-shell.prerm
++++ src/debian/fusionforge-shell.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-web.postinst
+===================================================================
+--- src.orig/debian/fusionforge-web.postinst
++++ src/debian/fusionforge-web.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postinst script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-web.postrm
+===================================================================
+--- src.orig/debian/fusionforge-web.postrm
++++ src/debian/fusionforge-web.postrm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # postrm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/fusionforge-web.prerm
+===================================================================
+--- src.orig/debian/fusionforge-web.prerm
++++ src/debian/fusionforge-web.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh
++exit 0 # Disabled in packages uploaded to Debian
+ # prerm script for fusionforge
+ #
+ # see: dh_installdeb(1)
+Index: src/debian/plugin.postinst
+===================================================================
+--- src.orig/debian/plugin.postinst
++++ src/debian/plugin.postinst
+@@ -1,4 +1,5 @@
+ #!/bin/sh -e
++exit 0 # Disabled in packages uploaded to Debian
+ 
+ pluginctl=$(forge_get_config source_path)/post-install.d/common/plugin.sh
+ 
+Index: src/debian/plugin.prerm
+===================================================================
+--- src.orig/debian/plugin.prerm
++++ src/debian/plugin.prerm
+@@ -1,4 +1,5 @@
+ #!/bin/sh -e
++exit 0 # Disabled in packages uploaded to Debian
+ 
+ # Skip if -common was already removed
+ if ! which forge_get_config >/dev/null; then exit 0; fi
+Index: src/debian/fusionforge-common.README.Debian
+===================================================================
+--- /dev/null
++++ src/debian/fusionforge-common.README.Debian
+@@ -0,0 +1,10 @@
++Due to unreasonable demands from the Debian QA Team (namely to stop
++auto-configuring other packages), post-install scripts are disabled.
++
++You can run them manually on each upgrade with:
++
++  /usr/share/fusionforge/bin/post-install.sh
++ 
++Alternatively see the Debian packages from the official project:
++
++  https://fusionforge.org/plugins/mediawiki/wiki/fusionforge/index.php/DEB_Installation
