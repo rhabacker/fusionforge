@@ -1,5 +1,4 @@
 #!/bin/sh -e
-exit 0 # Disabled in packages uploaded to Debian
 
 # Skip if -common was already removed
 if ! which forge_get_config >/dev/null; then exit 0; fi

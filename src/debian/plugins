@@ -6,8 +6,16 @@ Package: fusionforge-plugin-scmsvn
 Depends: subversion, subversion-tools, viewvc, python, python-pycurl, xinetd, rsync, libapache2-mod-svn
 Recommends: fusionforge-scm
 
+Package: fusionforge-plugin-scmbzr
+Depends: bzr, libapache2-mod-wsgi, loggerhead (>= 1.19~bzr477~), python-pastedeploy
+Recommends: fusionforge-scm
+
 Package: fusionforge-plugin-scmarch
 Depends:
+Recommends: fusionforge-scm
+
+Package: fusionforge-plugin-scmcvs
+Depends: php-cli | php5-cli, cvs, viewvc, libphp-snoopy, xinetd, libipc-run-perl, liburi-perl, ${perl:Depends}
 Recommends: fusionforge-scm
 
 Package: fusionforge-plugin-scmdarcs

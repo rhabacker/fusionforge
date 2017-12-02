@@ -1,5 +1,4 @@
 #!/bin/sh
-exit 0 # Disabled in packages uploaded to Debian
 # prerm script for fusionforge
 #
 # see: dh_installdeb(1)
